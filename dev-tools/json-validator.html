@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JSON Validator</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        textarea { width: 100%; height: 200px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; font-family: monospace; }
+        #status { padding: 1rem; border-radius: 8px; font-weight: 600; text-align: center; display: none; margin-bottom: 1rem; }
+        .valid { background: #dcfce7; color: #15803d; border: 1px solid #bbf7d0; }
+        .invalid { background: #fee2e2; color: #b91c1c; border: 1px solid #fecaca; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>JSON Validator</h1>
+            <p>Check if your JSON is valid.</p>
+        </header>
+        <div class="converter-card">
+            <div id="status"></div>
+            <textarea id="jsonInput" placeholder="Paste JSON to validate..."></textarea>
+            <button id="validateBtn" class="browse-btn" style="width: 100%">Validate JSON</button>
+        </div>
+    </div>
+    <script src="tools/json-validator.js"></script>
+</body>
+</html>

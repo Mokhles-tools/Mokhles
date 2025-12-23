@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Extract Text from PDF</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        #textOutput {
+            width: 100%;
+            height: 300px;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            resize: vertical;
+            font-family: monospace;
+            white-space: pre-wrap;
+            overflow-y: auto;
+            background: #f8f8f8;
+        }
+        .actions { margin-top: 1.5rem; }
+    </style>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';</script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Extract Text</h1>
+            <p>Extract all text content from a PDF document.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">📝</div>
+                <h3>Drag & Drop PDF file here</h3>
+                <p>Supports PDF only</p>
+                <input type="file" id="fileInput" accept="application/pdf" hidden>
+                <button class="browse-btn" id="browseBtn">Choose PDF</button>
+            </div>
+            <div class="result-area" id="resultArea" style="display: none;">
+                <p>Extracted Text:</p>
+                <div id="textOutput">
+                    Loading...
+                </div>
+                
+                <div class="actions">
+                    <button id="copyBtn" class="download-btn">Copy Text to Clipboard</button>
+                    <button class="reset-btn" id="resetBtn">Extract from another file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tools/extract-pdf-text.js"></script>
+</body>
+</html>

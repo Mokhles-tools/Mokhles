@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Saturation - ToolBox Pro</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* --- YOUR PROVIDED CSS --- */
+        :root {
+            --primary: #4f46e5;
+            --primary-hover: #4338ca;
+            --bg-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --surface: #ffffff;
+            --text-main: #1f2937;
+            --text-sub: #6b7280;
+            --border: #e5e7eb;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-gradient);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-main);
+            padding: 20px;
+        }
+
+        .container { width: 100%; max-width: 480px; }
+
+        header { text-align: center; margin-bottom: 2rem; color: white; }
+        header h1 { font-size: 2rem; font-weight: 600; margin-bottom: 0.5rem; }
+        header p { opacity: 0.9; font-size: 0.95rem; }
+
+        .converter-card {
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .upload-area {
+            border: 2px dashed var(--border);
+            border-radius: 12px;
+            padding: 3rem 1.5rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: #f9fafb;
+            cursor: pointer;
+        }
+
+        .upload-area.drag-over { border-color: var(--primary); background: #eef2ff; }
+        .icon { font-size: 3rem; margin-bottom: 1rem; }
+        .upload-area h3 { font-size: 1.1rem; margin-bottom: 0.5rem; color: var(--text-main); }
+        .upload-area p { color: var(--text-sub); margin-bottom: 1.5rem; font-size: 0.9rem; }
+
+        button, .download-btn {
+            cursor: pointer; border: none; font-family: inherit; font-weight: 600;
+            border-radius: 8px; padding: 0.75rem 1.5rem; transition: all 0.2s;
+            font-size: 0.95rem; display: inline-block; text-decoration: none;
+        }
+
+        .browse-btn, .download-btn { background: var(--primary); color: white; width: 100%; }
+        .browse-btn:hover, .download-btn:hover { background: var(--primary-hover); transform: translateY(-1px); }
+
+        .reset-btn {
+            background: transparent; color: var(--text-sub); margin-top: 1rem;
+            font-size: 0.85rem; width: 100%; text-align: center;
+        }
+        .reset-btn:hover { color: var(--text-main); text-decoration: underline; }
+
+        .result-area { text-align: center; animation: fadeIn 0.4s ease-out; display: none; }
+
+        .image-preview {
+            position: relative; margin-bottom: 1.5rem; border-radius: 8px;
+            overflow: hidden; box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            background: #eee;
+        }
+
+        canvas { max-width: 100%; display: block; }
+
+        .slider-container { margin: 1.5rem 0; text-align: left; }
+        .slider-label { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; font-size: 0.9rem; }
+        input[type=range] { width: 100%; accent-color: var(--primary); cursor: pointer; }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>Saturation Tool</h1>
+        <p>Enhance your image colors instantly.</p>
+    </header>
+
+    <div class="converter-card">
+        <div class="upload-area" id="drop-zone">
+            <div class="icon">🖼️</div>
+            <h3>Upload Image</h3>
+            <p>Drag & drop or click to browse</p>
+            <button class="browse-btn" onclick="document.getElementById('file-input').click()">Select Photo</button>
+            <input type="file" id="file-input" hidden accept="image/*">
+        </div>
+
+        <div class="result-area" id="result-area">
+            <div class="image-preview">
+                <canvas id="canvas"></canvas>
+            </div>
+
+            <div class="slider-container">
+                <div class="slider-label">
+                    <span>Saturation</span>
+                    <span id="sat-value">100%</span>
+                </div>
+                <input type="range" id="sat-slider" min="0" max="300" value="100">
+            </div>
+
+            <button class="download-btn" id="download-btn">Download Image</button>
+            <button class="reset-btn" onclick="location.reload()">Upload New Image</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    const dropZone = document.getElementById('drop-zone');
+    const fileInput = document.getElementById('file-input');
+    const resultArea = document.getElementById('result-area');
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const satSlider = document.getElementById('sat-slider');
+    const satValue = document.getElementById('sat-value');
+    const downloadBtn = document.getElementById('download-btn');
+
+    let originalImg = null;
+
+    // Handle File Upload
+    fileInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) handleFile(file);
+    });
+
+    // Drag and Drop Logic
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('drag-over');
+        const file = e.dataTransfer.files[0];
+        if (file && file.type.startsWith('image/')) handleFile(file);
+    });
+
+    function handleFile(file) {
+        const reader = new FileReader();
+        reader.onload = function(event) {
+            originalImg = new Image();
+            originalImg.onload = function() {
+                // Show Editor, Hide Upload
+                dropZone.style.display = 'none';
+                resultArea.style.display = 'block';
+                
+                // Set Canvas Size
+                canvas.width = originalImg.width;
+                canvas.height = originalImg.height;
+                applyFilter();
+            };
+            originalImg.src = event.target.result;
+        };
+        reader.readAsDataURL(file);
+    }
+
+    // Apply Saturation Filter
+    function applyFilter() {
+        if (!originalImg) return;
+        const amount = satSlider.value;
+        satValue.innerText = amount + '%';
+
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.filter = `saturate(${amount}%)`;
+        ctx.drawImage(originalImg, 0, 0);
+    }
+
+    satSlider.addEventListener('input', applyFilter);
+
+    // Download Logic
+    downloadBtn.addEventListener('click', function() {
+        const link = document.createElement('a');
+        link.download = 'saturated-image.png';
+        link.href = canvas.toDataURL();
+        link.click();
+    });
+</script>
+
+</body>
+</html>

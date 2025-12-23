@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Escape</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        textarea { width: 100%; height: 150px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>HTML Escape</h1>
+            <p>Escape HTML special characters.</p>
+        </header>
+        <div class="converter-card">
+            <textarea id="htmlInput" placeholder="Enter HTML or text to escape..."></textarea>
+            <button id="escapeBtn" class="browse-btn" style="width: 100%">Escape HTML</button>
+            <textarea id="htmlOutput" placeholder="Escaped output..." readonly style="background: #f9fafb; margin-top: 1rem;"></textarea>
+            <button id="copyBtn" class="reset-btn">Copy Escaped Text</button>
+        </div>
+    </div>
+    <script src="tools/html-escape.js"></script>
+</body>
+</html>

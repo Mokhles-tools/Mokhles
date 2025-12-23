@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sort Lines</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        textarea {
+            width: 100%; height: 180px; border: 2px solid var(--border);
+            border-radius: 12px; padding: 1rem; font-family: inherit; margin-bottom: 1rem;
+        }
+        textarea:focus { outline: none; border-color: var(--primary); }
+        .controls { display: flex; gap: 10px; margin-bottom: 1rem; }
+        .controls button { flex: 1; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Sort Lines</h1>
+            <p>Alphabetize your text lists instantly.</p>
+        </header>
+
+        <div class="converter-card">
+            <textarea id="textData" placeholder="Paste your list here..."></textarea>
+            
+            <div class="controls">
+                <button id="sortAscBtn" class="browse-btn">Sort A → Z</button>
+                <button id="sortDescBtn" class="browse-btn" style="background: #4b5563;">Sort Z → A</button>
+            </div>
+            
+            <button id="clearBtn" class="reset-btn">Clear</button>
+        </div>
+    </div>
+
+    <script src="tools/sort-lines.js"></script>
+</body>
+</html>

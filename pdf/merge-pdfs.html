@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Merge PDFs</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        #fileList { 
+            margin-top: 15px; 
+            text-align: left; 
+            padding: 10px; 
+            border: 1px solid var(--border); 
+            border-radius: 6px; 
+            list-style: none;
+        }
+        #fileList li { margin-bottom: 5px; font-size: 0.95rem; }
+        #fileCount { font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px; }
+    </style>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Merge PDFs</h1>
+            <p>Combine multiple PDF documents into one file.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">🔗</div>
+                <h3>Drag & Drop PDFs here (Multiple Files)</h3>
+                <p>Select PDFs in the order you want them merged.</p>
+                <input type="file" id="fileInput" accept="application/pdf" multiple hidden>
+                <button class="browse-btn" id="browseBtn">Choose PDFs</button>
+            </div>
+            <div class="result-area" id="resultArea" style="display: none;">
+                <p id="fileCount">0 files selected</p>
+                <ul id="fileList">
+                    </ul>
+                
+                <div class="actions">
+                    <a id="downloadBtn" class="download-btn">Merge & Download PDF</a>
+                    <button class="reset-btn" id="resetBtn">Merge new files</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tools/merge-pdfs.js"></script>
+</body>
+</html>

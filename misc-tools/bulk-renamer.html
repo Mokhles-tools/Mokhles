@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bulk Renamer</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .rename-controls { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 1.5rem 0; }
+        input[type="text"] { padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; font-family: inherit; }
+        .file-status { font-size: 0.85rem; color: var(--text-sub); margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Bulk Renamer</h1>
+            <p>Rename multiple files at once.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="dropZone">
+                <div class="icon">🏷️</div>
+                <p id="fileCount">No files selected</p>
+                <input type="file" id="fileInput" multiple hidden>
+                <button class="browse-btn" onclick="document.getElementById('fileInput').click()">Select Files</button>
+            </div>
+
+            <div class="rename-controls">
+                <input type="text" id="prefix" placeholder="Add Prefix (optional)">
+                <input type="text" id="suffix" placeholder="Add Suffix (optional)">
+            </div>
+
+            <button id="renameBtn" class="browse-btn" style="width: 100%">Download Renamed Files</button>
+        </div>
+    </div>
+    <script src="tools/bulk-renamer.js"></script>
+</body>
+</html>

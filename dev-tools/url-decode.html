@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Decode</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        textarea { width: 100%; height: 120px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>URL Decode</h1>
+            <p>Decode URL-encoded strings.</p>
+        </header>
+        <div class="converter-card">
+            <textarea id="urlInput" placeholder="Paste encoded URL string here..."></textarea>
+            <button id="decodeBtn" class="browse-btn" style="width: 100%">Decode URL</button>
+            <textarea id="urlOutput" placeholder="Decoded result..." readonly style="background: #f9fafb; margin-top: 1rem;"></textarea>
+        </div>
+    </div>
+    <script src="tools/url-decode.js"></script>
+</body>
+</html>

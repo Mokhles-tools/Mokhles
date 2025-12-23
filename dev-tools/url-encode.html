@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>URL Encode</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        textarea { width: 100%; height: 120px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>URL Encode</h1>
+            <p>Encode text for use in URLs.</p>
+        </header>
+        <div class="converter-card">
+            <textarea id="urlInput" placeholder="Enter text to encode..."></textarea>
+            <button id="encodeBtn" class="browse-btn" style="width: 100%">Encode URL</button>
+            <textarea id="urlOutput" placeholder="Encoded result..." readonly style="background: #f9fafb; margin-top: 1rem;"></textarea>
+            <button id="copyBtn" class="reset-btn">Copy Result</button>
+        </div>
+    </div>
+    <script src="tools/url-encode.js"></script>
+</body>
+</html>
