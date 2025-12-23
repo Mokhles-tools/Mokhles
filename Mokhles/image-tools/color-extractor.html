@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Extractor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .color-palette {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 15px;
+        }
+        .color-item {
+            width: 100px;
+            height: 80px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            padding-bottom: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+        .color-code {
+            font-size: 0.75rem;
+            color: white;
+            text-shadow: 0 0 3px rgba(0, 0, 0, 0.9);
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Color Extractor</h1>
+            <p>Get the dominant colors from your image.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">🎨</div>
+                <h3>Drag & Drop image here</h3>
+                <p>Supports JPG, PNG, WebP</p>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <button class="browse-btn" id="browseBtn">Choose File</button>
+            </div>
+            <div class="result-area" id="resultArea" style="display: none;">
+                <div class="image-preview">
+                    <img id="previewImage" src="" alt="Image Preview">
+                </div>
+                
+                <p>Dominant Colors Found:</p>
+                <div id="colorPalette" class="color-palette">
+                    </div>
+
+                <div class="actions">
+                    <button class="reset-btn" id="resetBtn">Extract from another file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tools/color-extractor.js"></script>
+</body>
+</html>

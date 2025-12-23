@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Compare</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .compare-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            border: 2px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.9rem;
+            resize: vertical;
+        }
+        textarea:focus { outline: none; border-color: var(--primary); }
+        .diff-container {
+            background: #f9fafb;
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            min-height: 100px;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: left;
+        }
+        .removed { background-color: #fee2e2; color: #b91c1c; text-decoration: line-through; }
+        .added { background-color: #dcfce7; color: #15803d; }
+    </style>
+</head>
+<body>
+    <div class="container" style="max-width: 800px;">
+        <header>
+            <h1>Text Compare</h1>
+            <p>Compare two texts and find differences.</p>
+        </header>
+
+        <div class="converter-card">
+            <div class="compare-grid">
+                <div>
+                    <p style="margin-bottom: 5px; font-size: 0.8rem; color: var(--text-sub);">Original Text</p>
+                    <textarea id="text1" placeholder="Paste original text here..."></textarea>
+                </div>
+                <div>
+                    <p style="margin-bottom: 5px; font-size: 0.8rem; color: var(--text-sub);">Modified Text</p>
+                    <textarea id="text2" placeholder="Paste modified text here..."></textarea>
+                </div>
+            </div>
+            
+            <button id="compareBtn" class="browse-btn" style="width: 100%;">Find Differences</button>
+            
+            <div id="resultLabel" style="margin-top: 1.5rem; margin-bottom: 0.5rem; display: none; font-weight: 600;">Differences:</div>
+            <div id="diffOutput" class="diff-container" style="display: none;"></div>
+            
+            <button id="clearBtn" class="reset-btn">Clear All</button>
+        </div>
+    </div>
+
+    <script src="tools/text-compare.js"></script>
+</body>
+</html>

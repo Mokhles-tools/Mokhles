@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNG to WebP Converter</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>PNG to WebP Converter</h1>
+            <p>Convert PNG images to modern WebP format.</p>
+        </header>
+
+        <div class="converter-card">
+            
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">🖼️</div>
+                <h3>Drag & Drop your PNG here</h3>
+                <p>or click to browse</p>
+                
+                <input type="file" id="fileInput" accept="image/png" hidden>
+                <button class="browse-btn" id="browseBtn">Choose File</button>
+            </div>
+
+            <div class="result-area" id="resultArea" style="display: none;">
+                <div class="image-preview">
+                    <img id="previewImage" src="" alt="Converted Image">
+                    <span class="badge">WEBP</span>
+                </div>
+                
+                <div class="actions">
+                    <p id="file-info">converted.webp</p>
+                    <a id="downloadBtn" class="download-btn" download>Download WebP</a>
+                    <button class="reset-btn" id="resetBtn">Convert another file</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="tools/png-to-webp.js"></script>
+</body>
+</html>

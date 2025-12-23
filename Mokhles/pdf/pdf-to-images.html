@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF to Images</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .output-format-controls { display: flex; gap: 10px; margin-bottom: 1rem; justify-content: center; }
+        .output-format-controls button { padding: 8px 16px; border: 1px solid var(--primary); border-radius: 6px; cursor: pointer; }
+        .output-format-controls button.selected { background: var(--primary); color: white; }
+        #imageOutput { margin-top: 20px; text-align: center; }
+        .page-preview { border: 1px solid #ccc; margin-bottom: 10px; display: inline-block; }
+    </style>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script>pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';</script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>PDF to Images</h1>
+            <p>Convert PDF pages to JPG or PNG files.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">📄</div>
+                <h3>Drag & Drop PDF file here</h3>
+                <p>Supports PDF only</p>
+                <input type="file" id="fileInput" accept="application/pdf" hidden>
+                <button class="browse-btn" id="browseBtn">Choose PDF</button>
+            </div>
+            <div class="result-area" id="resultArea" style="display: none;">
+                <p>Select Output Format:</p>
+                <div class="output-format-controls">
+                    <button id="formatJpeg" class="selected">JPG</button>
+                    <button id="formatPng">PNG</button>
+                </div>
+
+                <div id="imageOutput">
+                    <p id="loadingStatus">Processing pages...</p>
+                </div>
+                
+                <div class="actions">
+                    <a id="downloadAllBtn" class="download-btn" style="display: none;">Download All Images (.zip - not fully functional)</a>
+                    <button class="reset-btn" id="resetBtn">Convert another file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tools/pdf-to-images.js"></script>
+</body>
+</html>

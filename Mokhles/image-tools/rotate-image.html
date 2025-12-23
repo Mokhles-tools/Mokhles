@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rotate Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .controls { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 15px; 
+            margin: 1rem 0; 
+            padding: 0 10px; 
+        }
+        .degree-controls {
+            display: flex; 
+            gap: 10px; 
+            justify-content: center;
+        }
+        .btn-control { 
+            padding: 8px 16px; 
+            background: #eef2ff; 
+            border: 1px solid var(--primary); 
+            color: var(--primary); 
+            border-radius: 6px; 
+            cursor: pointer; 
+        }
+        .btn-control:hover { 
+            background: var(--primary); 
+            color: white; 
+        }
+        /* Style for the slider and readout */
+        .slider-group {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        #rotationSlider {
+            flex-grow: 1;
+        }
+        #rotationValue {
+            font-weight: 600;
+            color: var(--primary);
+            width: 60px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Rotate Image</h1>
+            <p>Rotate images to any precise angle.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">🔄</div>
+                <h3>Drag & Drop image here</h3>
+                <p>Supports JPG, PNG, WebP</p>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <button class="browse-btn" id="browseBtn">Choose File</button>
+            </div>
+            <div class="result-area" id="resultArea" style="display: none;">
+                <div class="image-preview">
+                    <img id="previewImage" src="" alt="Preview">
+                </div>
+                
+                <div class="controls">
+                    <div class="slider-group">
+                        <label for="rotationSlider">Rotation:</label>
+                        <input type="range" id="rotationSlider" min="-180" max="180" value="0" step="1">
+                        <span id="rotationValue">0°</span>
+                    </div>
+
+                    <div class="degree-controls">
+                        <button class="btn-control" id="rotateLeft">↺ -90°</button>
+                        <button class="btn-control" id="rotateRight">↻ +90°</button>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <a id="downloadBtn" class="download-btn">Save Image</a>
+                    <button class="reset-btn" id="resetBtn">Process another file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tools/rotate-image.js"></script>
+</body>
+</html>

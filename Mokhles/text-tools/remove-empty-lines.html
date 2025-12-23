@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Remove Empty Lines</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        textarea {
+            width: 100%; height: 200px; border: 2px solid var(--border);
+            border-radius: 12px; padding: 1rem; font-family: inherit; margin-bottom: 1rem;
+        }
+        textarea:focus { outline: none; border-color: var(--primary); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Remove Empty</h1>
+            <p>Remove empty lines from text.</p>
+        </header>
+        <div class="converter-card">
+            <textarea id="textInput" placeholder="Paste text with empty lines here..."></textarea>
+            <button id="processBtn" class="browse-btn" style="width: 100%">Remove Empty Lines</button>
+            <button id="copyBtn" class="reset-btn">Copy Result</button>
+        </div>
+    </div>
+    <script src="tools/remove-empty-lines.js"></script>
+</body>
+</html>

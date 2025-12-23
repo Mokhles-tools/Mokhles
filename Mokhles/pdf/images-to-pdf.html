@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Images to PDF</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        #previewContainer {
+            margin-top: 15px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+        .image-preview-item {
+            width: 80px;
+            height: 80px;
+            object-fit: cover;
+            border: 1px solid var(--border);
+            border-radius: 4px;
+        }
+        #fileCount { font-size: 0.9rem; color: var(--primary); font-weight: 600; margin-top: 10px; }
+    </style>
+    
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Images to PDF</h1>
+            <p>Combine multiple images into a single PDF document.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">📚</div>
+                <h3>Drag & Drop images here (Multiple Files)</h3>
+                <p>Supports JPG, PNG, WebP</p>
+                <input type="file" id="fileInput" accept="image/*" multiple hidden>
+                <button class="browse-btn" id="browseBtn">Choose Images</button>
+            </div>
+            <div class="result-area" id="resultArea" style="display: none;">
+                <p id="fileCount">0 files selected</p>
+                <div id="previewContainer">
+                    </div>
+                
+                <div class="actions">
+                    <a id="downloadBtn" class="download-btn">Create & Download PDF</a>
+                    <button class="reset-btn" id="resetBtn">Add new images</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tools/images-to-pdf.js"></script>
+</body>
+</html>

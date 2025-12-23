@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Base64 Encode</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        textarea { width: 100%; height: 120px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Base64 Encode</h1>
+            <p>Convert text to Base64.</p>
+        </header>
+        <div class="converter-card">
+            <textarea id="plainInput" placeholder="Enter plain text..."></textarea>
+            <button id="encodeBtn" class="browse-btn" style="width: 100%">Encode</button>
+            <textarea id="base64Output" placeholder="Base64 output..." readonly style="background: #f9fafb; margin-top: 1rem;"></textarea>
+            <button id="copyBtn" class="reset-btn">Copy Base64</button>
+        </div>
+    </div>
+    <script src="tools/base64-encode.js"></script>
+</body>
+</html>

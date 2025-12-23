@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlock PDF</title>
+    <link href="style.css" rel="stylesheet">
+    <style>
+        .password-group { margin: 15px 0; }
+        .password-group label { display: block; margin-bottom: 5px; font-weight: 600; }
+        .password-group input { padding: 8px; border: 1px solid var(--border); border-radius: 6px; width: 100%; box-sizing: border-box; margin-bottom: 10px; }
+        #fileNameDisplay { font-size: 0.9rem; color: var(--text-sub); }
+    </style>
+    <script src="https://unpkg.com/pdf-lib/dist/pdf-lib.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Unlock PDF</h1>
+            <p>Remove password security from encrypted PDFs.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">🔓</div>
+                <h3>Drag & Drop Encrypted PDF file here</h3>
+                <p>Supports PDF only</p>
+                <input type="file" id="fileInput" accept="application/pdf" hidden>
+                <button class="browse-btn" id="browseBtn">Choose PDF</button>
+            </div>
+            <div class="result-area" id="resultArea" style="display: none;">
+                <p id="fileNameDisplay">File: N/A</p>
+
+                <div class="password-group">
+                    <label for="pdfPassword">PDF Password (User or Owner):</label>
+                    <input type="password" id="pdfPassword" placeholder="Enter password to unlock">
+                </div>
+                
+                <div class="actions">
+                    <a id="downloadBtn" class="download-btn">Unlock & Download PDF</a>
+                    <button class="reset-btn" id="resetBtn">Process another file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tools/unlock-pdf.js"></script>
+</body>
+</html>

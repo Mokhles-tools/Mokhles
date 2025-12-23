@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blur Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .slider-group {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+        #blurSlider { flex-grow: 1; }
+        #blurValue {
+            font-weight: 600;
+            color: var(--primary);
+            width: 40px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Blur Image</h1>
+            <p>Apply a customizable blur effect using a Canvas filter.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">🌊</div>
+                <h3>Drag & Drop image here</h3>
+                <p>Supports JPG, PNG, WebP</p>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <button class="browse-btn" id="browseBtn">Choose File</button>
+            </div>
+            <div class="result-area" id="resultArea" style="display: none;">
+                <div class="image-preview">
+                    <img id="previewImage" src="" alt="Blurred Preview">
+                </div>
+                
+                <div class="slider-group">
+                    <label for="blurSlider">Radius (px):</label>
+                    <input type="range" id="blurSlider" min="0" max="100" value="5" step="1">
+                    <span id="blurValue">5px</span>
+                </div>
+
+                <div class="actions">
+                    <a id="downloadBtn" class="download-btn">Apply Blur & Download</a>
+                    <button class="reset-btn" id="resetBtn">Process another file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tools/blur-image.js"></script>
+</body>
+</html>

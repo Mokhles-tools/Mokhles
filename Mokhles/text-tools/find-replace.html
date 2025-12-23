@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Find & Replace</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        textarea { width: 100%; height: 150px; border: 2px solid var(--border); border-radius: 12px; padding: 1rem; margin-bottom: 1rem; }
+        .inputs { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 1rem; }
+        input[type="text"] { padding: 0.75rem; border: 1px solid var(--border); border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Find & Replace</h1>
+            <p>Bulk find and replace text.</p>
+        </header>
+        <div class="converter-card">
+            <textarea id="textInput" placeholder="Enter your text here..."></textarea>
+            <div class="inputs">
+                <input type="text" id="findInput" placeholder="Find this...">
+                <input type="text" id="replaceInput" placeholder="Replace with...">
+            </div>
+            <button id="replaceBtn" class="browse-btn" style="width: 100%">Replace All</button>
+        </div>
+    </div>
+    <script src="tools/find-replace.js"></script>
+</body>
+</html>

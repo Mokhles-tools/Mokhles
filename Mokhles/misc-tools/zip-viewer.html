@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ZIP Viewer</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <style>
+        .file-list-container {
+            margin-top: 1.5rem;
+            text-align: left;
+            max-height: 300px;
+            overflow-y: auto;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            display: none;
+        }
+        .file-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid #f3f4f6;
+            font-size: 0.9rem;
+        }
+        .file-item:last-child { border-bottom: none; }
+        .file-name { color: var(--text-main); font-weight: 500; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        .file-size { color: var(--text-sub); font-size: 0.8rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>ZIP Viewer</h1>
+            <p>See what's inside a ZIP file.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="dropZone">
+                <div class="icon">📦</div>
+                <p id="uploadText">Select or Drop ZIP file</p>
+                <input type="file" id="zipInput" accept=".zip" hidden>
+                <button class="browse-btn" id="browseBtn">Browse Files</button>
+            </div>
+
+            <div id="fileListContainer" class="file-list-container">
+                <div id="fileList"></div>
+            </div>
+
+            <button id="resetBtn" class="reset-btn" style="display: none; width: 100%;">Clear and Upload New</button>
+        </div>
+    </div>
+    <script src="tools/zip-viewer.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Watermark Image</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .watermark-controls { 
+            display: flex; 
+            flex-direction: column; 
+            gap: 10px; 
+            margin-bottom: 1rem;
+        }
+        .watermark-controls input, .watermark-controls select {
+            padding: 8px;
+            border: 1px solid var(--border);
+            border-radius: 6px;
+        }
+        .watermark-controls label {
+            font-size: 0.8rem; 
+            color: var(--text-sub); 
+            margin-top: 5px;
+        }
+        .preview-container {
+            max-width: 100%;
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        #watermarkCanvas {
+            max-width: 100%;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Watermark</h1>
+            <p>Add a watermark to protect your images.</p>
+        </header>
+        <div class="converter-card">
+            <div class="upload-area" id="uploadArea">
+                <div class="icon">©</div>
+                <h3>Drag & Drop image here</h3>
+                <p>Supports JPG, PNG, WebP</p>
+                <input type="file" id="fileInput" accept="image/*" hidden>
+                <button class="browse-btn" id="browseBtn">Choose File</button>
+            </div>
+            <div class="result-area" id="resultArea" style="display: none;">
+                <div class="preview-container">
+                    <canvas id="watermarkCanvas"></canvas>
+                </div>
+                
+                <div class="watermark-controls">
+                    <label for="watermarkText">Watermark Text:</label>
+                    <input type="text" id="watermarkText" value="© Your Website Name">
+                    
+                    <label for="positionSelect">Position:</label>
+                    <select id="positionSelect">
+                        <option value="bottom-right">Bottom Right</option>
+                        <option value="center">Center</option>
+                        <option value="top-left">Top Left</option>
+                        <option value="diagonal">Diagonal (Tiled)</option>
+                    </select>
+
+                    <label for="opacitySlider">Opacity:</label>
+                    <input type="range" id="opacitySlider" min="0.1" max="1.0" value="0.5" step="0.1">
+                </div>
+
+                <div class="actions">
+                    <a id="downloadBtn" class="download-btn">Download Watermarked Image</a>
+                    <button class="reset-btn" id="resetBtn">Process another file</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="tools/watermark.js"></script>
+</body>
+</html>
