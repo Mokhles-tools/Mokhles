@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Request a Tool - Mokhles</title>
     
-    <link rel="icon" type="image/png" href="Add a heading.png">
+    <link rel="icon" type="image/png" href="../Add a heading.png">
+    
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <link rel="stylesheet" href="../assets/css/main.css">
     
     <style>
         .form-wrapper { 
             max-width: 600px; 
-            margin: 140px auto 80px; /* Adjusted top margin for navbar clearance */
+            margin: 140px auto 80px;
             padding: 2.5rem; 
             background: var(--surface); 
             border-radius: 24px; 
@@ -97,7 +99,7 @@
 
     <div id="footer-placeholder"></div>
 
-    <script src="assets/js/main.js"></script>
+    <script src="../assets/js/main.js"></script>
 
     <script>
         // 1. Load Navbar and Footer
@@ -114,6 +116,8 @@
         }
 
         document.addEventListener("DOMContentLoaded", () => {
+            // Since navbar.html and footer.html are in the SAME folder (others), 
+            // we do NOT need "../" for these two.
             loadHTML('navbar-placeholder', 'navbar.html');
             loadHTML('footer-placeholder', 'footer.html');
         });
@@ -127,7 +131,6 @@
             const button = document.getElementById("submit-button");
             const data = new FormData(event.target);
 
-            // Disable button and show loading state
             button.disabled = true;
             button.innerText = "Sending...";
 
