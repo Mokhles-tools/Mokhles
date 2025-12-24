@@ -139,6 +139,21 @@ function closeTool() {
     document.body.style.overflow = 'auto';
 }
 
+
+// Toggle Mobile Menu
+function toggleMenu() {
+    const menu = document.getElementById('mobile-menu');
+    const isVisible = menu.style.display === 'block';
+    menu.style.display = isVisible ? 'none' : 'block';
+}
+
+// Optional: Adjust header padding because navbar is fixed
+document.addEventListener("DOMContentLoaded", () => {
+    // Add some top margin to the header so it doesn't hide behind the fixed navbar
+    const header = document.querySelector('header');
+    if(header) header.style.paddingTop = '6rem';
+});
+
 // Initial Run
 renderTools();
 searchInput.addEventListener('input', (e) => renderTools(e.target.value.toLowerCase()));
