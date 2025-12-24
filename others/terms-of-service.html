@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Terms of Service - Mokhles</title>
+
+    <link rel="icon" type="image/png" href="Add a heading.png">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/main.css">
+
+    <!-- Google AdSense -->
+    <script async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+        crossorigin="anonymous"></script>
+
+    <style>
+        .legal-container {
+            max-width: 800px;
+            margin: 140px auto 60px;
+            padding: 0 1.5rem;
+            line-height: 1.8;
+            min-height: 60vh;
+        }
+        .legal-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, #4f46e5 0%, #9333ea 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .legal-container h2 {
+            margin: 2.5rem 0 1rem;
+            font-size: 1.5rem;
+            color: var(--text-main);
+        }
+        .legal-container p {
+            color: var(--text-sub);
+            margin-bottom: 1rem;
+        }
+
+        .adsense-block {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+
+    <div id="navbar-placeholder"></div>
+
+    <!-- Top Ad (Below Navbar) -->
+    <div class="adsense-block">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="legal-container">
+        <h1>Terms of Service</h1>
+
+        <p>Welcome to <strong>Mokhles</strong>. By accessing this website, we assume you accept these terms and conditions. Do not continue to use Mokhles if you do not agree to all of the terms and conditions stated on this page.</p>
+
+        <h2>1. Use License</h2>
+        <p>Permission is granted to temporarily use the tools on Mokhles's website for personal, non-commercial transitory viewing or data processing only.</p>
+
+        <h2>2. Disclaimer</h2>
+        <p>The tools on Mokhles's website are provided on an “as is” basis. Mokhles makes no warranties, expressed or implied.</p>
+
+        <h2>3. Limitations</h2>
+        <p>In no event shall Mokhles or its suppliers be liable for any damages arising out of the use or inability to use the tools on this website.</p>
+
+        <h2>4. Governing Law</h2>
+        <p>These terms are governed by the laws of Bangladesh.</p>
+    </div>
+
+    <!-- Bottom Ad (Before Footer) -->
+    <div class="adsense-block">
+        <ins class="adsbygoogle"
+            style="display:block"
+            data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+            data-ad-slot="XXXXXXXXXX"
+            data-ad-format="auto"
+            data-full-width-responsive="true"></ins>
+        <script>
+            (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <div class="theme-switch" onclick="toggleTheme()">
+        <span id="light-icon">☀️</span>
+        <span id="dark-icon" class="active-theme">🌙</span>
+    </div>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        function loadHTML(elementId, fileName) {
+            fetch(fileName)
+                .then(response => response.text())
+                .then(data => document.getElementById(elementId).innerHTML = data);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            loadHTML('navbar-placeholder', 'navbar.html');
+            loadHTML('footer-placeholder', 'footer.html');
+        });
+    </script>
+
+</body>
+</html>
