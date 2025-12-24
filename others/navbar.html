@@ -5,10 +5,12 @@
         </a>
 
         <ul class="nav-links">
-            <li><a href="/index.html" class="active">Home</a></li>
-            <li><a href="#tools-container">Tools</a></li>
+            <li><a href="/index.html">Home</a></li>
+            
+            <li><a href="/index.html#tools-container">Tools</a></li>
+            
             <li><a href="/others/about.html">About</a></li>
-            <li><a href="#">Contact</a></li>
+            <li><a href="/others/request-a-tool.html">Request Tool</a></li>
         </ul>
 
         <button class="mobile-toggle" onclick="toggleMenu()">
@@ -19,22 +21,23 @@
     </div>
 
     <div class="mobile-menu" id="mobile-menu">
-        <a href="index.html" onclick="toggleMenu()">Home</a>
-        <a href="#tools-container" onclick="toggleMenu()">Tools</a>
-        <a href="#" onclick="toggleMenu()">About</a>
-        <a href="#" onclick="toggleMenu()">Contact</a>
+        <a href="/index.html" onclick="toggleMenu()">Home</a>
+        <a href="/index.html#tools-container" onclick="toggleMenu()">Tools</a>
+        <a href="/others/about.html" onclick="toggleMenu()">About</a>
+        <a href="/others/request-a-tool.html" onclick="toggleMenu()">Request Tool</a>
     </div>
 </nav>
 
 <script>
     function toggleMenu() {
         const menu = document.getElementById('mobile-menu');
-        // Check if menu is currently hidden or visible
+        const toggle = document.querySelector('.mobile-toggle');
+        
+        // Simple toggle logic
         if (menu.style.display === 'block') {
             menu.style.display = 'none';
         } else {
             menu.style.display = 'block';
         }
     }
-
 </script>
