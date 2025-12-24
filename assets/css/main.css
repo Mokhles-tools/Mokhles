@@ -252,3 +252,227 @@ iframe {
     header { padding: 3rem 1rem 4rem 1rem; }
     .tools-grid { grid-template-columns: 1fr; }
 }
+
+/* --- NAVBAR STYLES --- */
+.main-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(var(--surface), 0.8); /* Fallback */
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Glass effect */
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.logo-icon {
+    background: var(--primary);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-sub);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover, .nav-links a.active {
+    color: var(--primary);
+}
+
+/* Mobile Toggle */
+.mobile-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.mobile-toggle span {
+    width: 25px;
+    height: 2px;
+    background: var(--text-main);
+    border-radius: 2px;
+}
+
+/* Update this in your main.css */
+.mobile-menu {
+    display: none;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem; /* Increased padding for better look */
+    position: absolute;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    
+    /* Centering logic */
+    text-align: center; 
+    box-sizing: border-box;
+}
+
+.mobile-menu a {
+    display: block;
+    padding: 1rem 0; /* More vertical space */
+    color: var(--text-main);
+    text-decoration: none;
+    border-bottom: 1px solid var(--border);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+/* Remove the border from the very last link */
+.mobile-menu a:last-child {
+    border-bottom: none;
+}
+
+/* --- FOOTER STYLES --- */
+.main-footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 4rem 0 1rem 0;
+    margin-top: 4rem;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 3rem;
+    margin-bottom: 3rem;
+}
+
+.footer-brand {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-main);
+}
+
+.footer-desc {
+    color: var(--text-sub);
+    line-height: 1.6;
+    max-width: 300px;
+}
+
+.footer-col h4 {
+    color: var(--text-main);
+    margin-bottom: 1.2rem;
+    font-size: 1.1rem;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.8rem;
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: var(--text-sub);
+    transition: 0.3s;
+}
+
+.footer-links a:hover {
+    color: var(--primary);
+    padding-left: 5px;
+}
+
+.social-icons {
+    display: flex;
+    gap: 0.75rem;
+}
+
+.social-link {
+    width: 42px;
+    height: 42px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    border-radius: 12px; /* Matching your tool-card style */
+    text-decoration: none;
+    color: var(--text-main);
+    font-size: 1.1rem; /* Size of the icon */
+    transition: all 0.3s ease;
+}
+
+.social-link:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateY(-3px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 15px -3px rgba(79, 70, 229, 0.4);
+}
+
+/* Optional: specifically for the X/Twitter icon size tweak */
+.social-link .fa-x-twitter {
+    font-size: 1rem;
+}
+
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 2rem;
+    margin-top: 2rem; /* Adds space between the grid and the line */
+    border-top: 1px solid var(--border);
+    color: var(--text-sub);
+    font-size: 0.9rem;
+    
+    /* Force the line to take up the full width of the footer container */
+    width: 100%; 
+    grid-column: 1 / -1; /* If it is inside a grid, this makes it span all columns */
+}
+/* --- RESPONSIVE ADJUSTMENTS --- */
+@media (max-width: 768px) {
+    .nav-links { display: none; }
+    .mobile-toggle { display: flex; }
+    .mobile-menu.active { display: block; }
+    
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+    
+    .footer-desc { margin: 0 auto; }
+    .social-icons { justify-content: center; }
+}
