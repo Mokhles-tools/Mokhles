@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Cyphacore AI</title>
+    
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- Animation Core (Matches Services & Home) --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            /* 2.5s duration for that buttery, slow premium feel */
+            transition: opacity 2.5s cubic-bezier(0.19, 1, 0.22, 1), transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Adjustments for About Page Layout */
+        .about-hero {
+            padding: 10rem 2rem 5rem; /* Extra top padding for navbar clearance */
+        }
+        
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            align-items: center;
+        }
+
+        @media (max-width: 768px) {
+            .grid-2 { grid-template-columns: 1fr; gap: 2rem; }
+            .about-hero { padding-top: 8rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="about-hero">
+        <div class="grid-2">
+            <div class="fade-in">
+                <h1 class="section-title" style="text-align: left; margin-bottom: 2rem;">
+                    Who We <span class="gradient-text">Are</span>
+                </h1>
+
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    Cyphacore AI is an automation-focused technology studio helping businesses
+                    eliminate repetitive work, reduce operational errors, and scale efficiently
+                    through intelligent workflows.
+                </p>
+
+                <p style="color: var(--text-muted); margin-bottom: 1.5rem; font-size: 1.1rem;">
+                    Founded in 2025, we specialize in designing, building, and maintaining
+                    reliable automation systems using modern tools such as workflow engines,
+                    APIs, and AI-powered decision logic.
+                </p>
+
+                <p style="color: var(--text-muted); font-size: 1.1rem;">
+                    Our goal is simple: build automations that actually work in production,
+                    not just demos.
+                </p>
+            </div>
+
+            <div class="glass-card fade-in" style="display:flex; justify-content:center; align-items:center; min-height:400px; border: 1px dashed var(--neon-purple);">
+                <i class="fas fa-diagram-project" style="font-size:8rem; opacity:0.15; color: var(--neon-purple);"></i>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 5rem 2.5rem;">
+        <h2 class="section-title fade-in">
+            What We <span class="gradient-text">Do</span>
+        </h2>
+
+        <div class="grid-3">
+            <div class="glass-card fade-in">
+                <i class="fas fa-microchip" style="font-size: 2rem; color: var(--neon-pink); margin-bottom: 1.5rem;"></i>
+                <h3>Business Automation</h3>
+                <p style="color: var(--text-muted);">
+                    We automate internal processes such as lead handling, reporting,
+                    data synchronization, notifications, and integrations between tools.
+                </p>
+            </div>
+
+            <div class="glass-card fade-in">
+                <i class="fas fa-network-wired" style="font-size: 2rem; color: var(--neon-purple); margin-bottom: 1.5rem;"></i>
+                <h3>API & System Integration</h3>
+                <p style="color: var(--text-muted);">
+                    We connect CRMs, databases, payment systems, email platforms,
+                    and third-party APIs into seamless workflows.
+                </p>
+            </div>
+
+            <div class="glass-card fade-in">
+                <i class="fas fa-brain" style="font-size: 2rem; color: var(--neon-pink); margin-bottom: 1.5rem;"></i>
+                <h3>AI-Enhanced Workflows</h3>
+                <p style="color: var(--text-muted);">
+                    From AI-assisted decision logic to content processing and data analysis,
+                    we integrate AI where it adds real value — not buzzwords.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 5rem 2.5rem;">
+        <h2 class="section-title fade-in">
+            Our <span class="gradient-text">Principles</span>
+        </h2>
+
+        <div class="grid-3">
+            <div class="glass-card fade-in">
+                <i class="fas fa-eye" style="font-size: 2rem; color: var(--neon-purple); margin-bottom: 1.5rem;"></i>
+                <h3>Clarity Over Complexity</h3>
+                <p style="color: var(--text-muted);">
+                    Every workflow has clear limits, documentation, and ownership.
+                    No hidden logic or unmaintainable systems.
+                </p>
+            </div>
+
+            <div class="glass-card fade-in">
+                <i class="fas fa-chart-line" style="font-size: 2rem; color: var(--neon-pink); margin-bottom: 1.5rem;"></i>
+                <h3>Scalable Design</h3>
+                <p style="color: var(--text-muted);">
+                    We build automations that can grow with your business,
+                    not break when volume increases.
+                </p>
+            </div>
+
+            <div class="glass-card fade-in">
+                <i class="fas fa-user-shield" style="font-size: 2rem; color: var(--neon-purple); margin-bottom: 1.5rem;"></i>
+                <h3>Security & Reliability</h3>
+                <p style="color: var(--text-muted);">
+                    Credentials, data access, and system stability are treated
+                    with enterprise-grade responsibility.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section style="padding: 8rem 2rem; text-align:center;">
+        <div class="glass-card fade-in" style="max-width:800px; margin:0 auto; padding: 4rem;">
+            <h2>
+                Built for <span class="gradient-text">Real Businesses</span>
+            </h2>
+            <p style="color: var(--text-muted); margin-top:1.5rem; font-size: 1.2rem; line-height: 1.8;">
+                Whether you're a startup automating your first processes
+                or a growing company scaling operations,
+                Cyphacore AI delivers automation that stays reliable long-term.
+            </p>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(res => res.text())
+                .then(data => {
+                    document.getElementById(id).innerHTML = data;
+                });
+        }
+
+        loadComponent('navbar-placeholder', 'navbar.html');
+        loadComponent('footer-placeholder', 'footer.html');
+
+        // Animation Trigger (Wait for fetch to finish)
+        setTimeout(() => {
+            const observerOptions = { threshold: 0.1 };
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }, 300);
+    </script>
+</body>
+</html>

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Lost in Cyphaspace</title>
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <style>
+        :root {
+            --neon-purple: #7000ff;
+            --neon-pink: #ff00ff;
+            --bg-dark: #050505;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: var(--bg-dark);
+            color: white;
+            font-family: 'Space Grotesk', sans-serif;
+            overflow: hidden;
+        }
+
+        /* Fallback for fade-in if style.css is missing */
+        .fade-in {
+            animation: fadeInScreen 1s ease forwards;
+        }
+
+        @keyframes fadeInScreen {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .error-container {
+            position: relative;
+            z-index: 2;
+            padding: 2rem;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            max-width: 90%;
+        }
+
+        .error-code {
+            font-size: clamp(6rem, 15vw, 10rem);
+            font-weight: 700;
+            margin: 0;
+            background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 15px rgba(112, 0, 255, 0.4));
+        }
+
+        .error-msg {
+            color: #a0a0a0;
+            margin: 1rem 0 2rem 0;
+            line-height: 1.6;
+        }
+
+        .btn-back {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            background: linear-gradient(90deg, var(--neon-purple), var(--neon-pink));
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn-back:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.4);
+        }
+
+        /* Matrix Background Effect */
+        #canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+            opacity: 0.15;
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="canvas"></canvas>
+
+ <div class="error-container fade-in">
+    <div style="font-weight: 700; font-size: 1.2rem; margin-bottom: 1rem; letter-spacing: 2px;">
+        CYPHA<span style="background: linear-gradient(90deg, var(--neon-pink), var(--neon-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">CORE</span> AI
+    </div>
+
+    <h1 class="error-code">404</h1>
+    <h2 style="text-transform: uppercase; letter-spacing: 3px; font-size: 1rem;">Error</h2>
+    <p class="error-msg">
+        <strong>Looks Like You Landed On A Broken Link </strong> 
+    </p>
+    <a href="index.html" class="btn-back">
+        <i class="fas fa-home"></i> RETURN TO HOME
+    </a>
+</div>
+    <script>
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const letters = 'CYPHACORE01';
+        const fontSize = 16;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function draw() {
+            ctx.fillStyle = 'rgba(5, 5, 5, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = '#7000ff';
+            ctx.font = fontSize + 'px monospace';
+
+            drops.forEach((y, i) => {
+                const text = letters[Math.floor(Math.random() * letters.length)];
+                ctx.fillText(text, i * fontSize, y * fontSize);
+                if (y * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                drops[i]++;
+            });
+        }
+        setInterval(draw, 33);
+    </script>
+</body>
+</html>

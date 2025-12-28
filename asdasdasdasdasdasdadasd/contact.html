@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Cyphacore AI</title>
+    
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon.ico">
+    <link rel="icon" type="image/png" href="assets/images/favicon.png">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* --- Animation Core --- */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 2.5s cubic-bezier(0.19, 1, 0.22, 1), transform 2.5s cubic-bezier(0.19, 1, 0.22, 1);
+            will-change: opacity, transform;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* --- Layout --- */
+        .contact-section {
+            padding: 8rem 1.5rem;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        .grid-2 {
+            display: grid;
+            /* CHANGED: 1.5fr for Form, 1fr for Info (Makes form wider) */
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
+            /* CHANGED: Increased max-width to stretch content */
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 900px) {
+            .grid-2 {
+                grid-template-columns: 1fr; /* Stack on tablets/phones */
+            }
+        }
+
+        /* --- Card Styles --- */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            padding: 3rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* --- Dark Input Design --- */
+        form label {
+            display: block;
+            margin-bottom: 0.8rem;
+            color: #d1d5db; 
+            font-size: 0.95rem;
+            font-weight: 600;
+            margin-left: 4px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 1.2rem;
+            margin-bottom: 1.5rem;
+            
+            /* Dark Box Style */
+            background: rgba(0, 0, 0, 0.4); 
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            
+            color: #fff;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        form input:focus, form textarea:focus {
+            outline: none;
+            border-color: rgba(139, 92, 246, 0.5);
+            background: rgba(0, 0, 0, 0.6);
+        }
+
+        form input::placeholder, form textarea::placeholder {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Button Style */
+        .btn-primary {
+            background: linear-gradient(90deg, #d946ef, #8b5cf6);
+            border: none;
+            border-radius: 50px;
+            padding: 1rem 2rem;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(217, 70, 239, 0.3);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(217, 70, 239, 0.5);
+        }
+
+        /* --- Map Styling --- */
+        .map-container {
+            width: 100%;
+            height: 250px;
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            margin-top: 1rem;
+        }
+        
+        .light-map {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="navbar-placeholder"></div>
+
+    <section class="contact-section">
+        <h1 class="section-title fade-in">Get in <span class="gradient-text">Touch</span></h1>
+        
+        <div class="grid-2">
+            
+            <div class="glass-card fade-in">
+                <form>
+                    <label>Name</label>
+                    <input type="text" placeholder="John Doe">
+                    
+                    <label>Email</label>
+                    <input type="email" placeholder="john@company.com">
+                    
+                    <label>Message</label>
+                    <textarea rows="5" placeholder="Tell us about your project..."></textarea>
+                    
+                    <button type="submit" class="btn btn-primary" style="width: 100%; cursor: pointer;">Send Message</button>
+                </form>
+            </div>
+
+            <div class="fade-in">
+                <div class="glass-card" style="margin-bottom: 2rem; height: auto; padding: 2.5rem;">
+                    <h3><i class="fas fa-map-marker-alt" style="color: var(--neon-pink); margin-right: 15px;"></i> HQ</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem; line-height: 1.6; padding-left: 2.2rem;">
+                        West Akur Takur Para<br>
+                        Tangail 1900, Bangladesh
+                    </p>
+                </div>
+
+                <div class="glass-card" style="margin-bottom: 2rem; height: auto; padding: 2.5rem;">
+                    <h3><i class="fas fa-envelope" style="color: var(--neon-purple); margin-right: 15px;"></i> Email</h3>
+                    <p style="color: var(--text-muted); margin-top: 0.5rem; padding-left: 2.2rem;">cyphacoreai@gmail.com</p>
+                </div>
+
+                <div class="map-container">
+                    <iframe 
+                        class="light-map"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3637.368305047466!2d89.91522867599547!3d24.263884868897585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39fdfbdb0d473461%3A0xc6c761352e057317!2sAkur%20Takur%20Para%20-%20Polashtoli%20Link%20Rd%2C%20Tangail!5e0!3m2!1sen!2sbd!4v1703080000000!5m2!1sen!2sbd"
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-placeholder"></div>
+
+    <script src="assets/js/app.js"></script>
+    <script>
+        function loadComponent(id, file) {
+            fetch(file)
+                .then(res => res.text())
+                .then(data => document.getElementById(id).innerHTML = data);
+        }
+
+        loadComponent('navbar-placeholder', 'navbar.html');
+        loadComponent('footer-placeholder', 'footer.html');
+
+        setTimeout(() => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+        }, 100);
+    </script>
+</body>
+</html>
